@@ -10,4 +10,12 @@
 	if(!$conexion) { die ("FINALIZO LA CONEXION");
 }
 echo "CONEXION EXITOSA";
+$query= "select * from demo";
+$result= mysqli_query($conexion,$query);
+while ($row=mysqli_fetch_assoc($result){
+	echo $row['id']. " ".$row['nombre']." ".$row['descripcion'];
+}
+conexion=null;
+
+})
 ?>
