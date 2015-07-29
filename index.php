@@ -4,9 +4,9 @@
 	$database="sql585296";
 	$usuario="sql585296";
 	$password="yX9!zJ5%";
-	$port="3306";
+	$port=3306;
 	// CREAR CONNECCION 
-	$conexio=mysqli_connect($URL,$usuario,$password,$database,$port);
+	$conexion=mysqli_connect($URL,$usuario,$password,$database,$port);
 	if(!$conexion) { die ("FINALIZO LA CONEXION");
 }
 echo "CONEXION EXITOSA";
