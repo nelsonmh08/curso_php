@@ -38,4 +38,5 @@ $response = Unirest\Request::get("https://montanaflynn-dictionary.p.mashape.com/
     "Accept" => "application/json"
   )
 );
+echo  $response->raw_body;	
 ?>
