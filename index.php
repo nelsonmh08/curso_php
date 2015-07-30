@@ -1,5 +1,5 @@
 <?php
-requiere '/var/www/html/vendor/autoload.php';
+requiere __DIR__ .'/vendor/autoload.php';
 	echo"CONEXION A LA BASE DE DATOS DEMO";
 	$URL="sql5.freemysqlhosting.net";
 	$database="sql585296";
