@@ -1,5 +1,5 @@
 <?php
-requiere __DIR__ .'/vendor/autoload.php';
+require  __DIR__.'/vendor/autoload.php';
 	echo"CONEXION A LA BASE DE DATOS DEMO";
 	$URL="sql5.freemysqlhosting.net";
 	$database="sql585296";
@@ -16,8 +16,13 @@ $result= mysqli_query($conexion,$query);
 while ($row=mysqli_fetch_assoc($result)){
 	echo $row['id']. " ".$row['nombre']." ".$row['descripcion'];
 }
-mysqli_close(conexion);
-$response=Unirest\Request::getallheaders("https://bestapi-waze-unoffical-free-v1.p.mashape.com/addressList?address=universidad+panama",array("X-Mashape-Key"=>"ZA8k3CJvxdmshT0XPS3S6WV6vnfwp1hj5F9jsnNujBw5cKjh2Y",
-	"Accept"=>"application/json"));
-echo $response;	
+//mysqli_close(conexion);
+// These code snippets use an open-source library. http://unirest.io/php
+$response = Unirest\Request::get("https://bestapi-waze-unoffical-free-v1.p.mashape.com/addressList?address=Universidad+de+Panama",
+  array(
+    "X-Mashape-Key" => "ZA8k3CJvxdmshT0XPS3S6WV6vnfwp1hj5F9jsnNujBw5cKjh2Y",
+    "Accept" => "application/json"
+  )
+);
+echo  $response->raw_body;	
 ?>
