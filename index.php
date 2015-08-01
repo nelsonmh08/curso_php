@@ -1,14 +1,3 @@
-<?php
-require  __DIR__.'/vendor/autoload.php';
-
-$response = Unirest\Request::get("https://montanaflynn-dictionary.p.mashape.com/define?word=work",
-  array(
-    "X-Mashape-Key" => "ZA8k3CJvxdmshT0XPS3S6WV6vnfwp1hj5F9jsnNujBw5cKjh2Y",
-    "Accept" => "application/json"
-  )
-);
-echo  $response->raw_body;	
-?>
 <html>
 <form>
   <head>
@@ -31,9 +20,23 @@ echo  $response->raw_body;
     <input type="text" name="word" class="form-control" placeholder="search for...">
    </div>
 </form>
-<a href="#>Inbox <span class="badge">42</span></a>
-<button class="btn btn-primary" type="button">
-messages <span class="badge">4</span>
-</button>
+<?php
+require  __DIR__.'/vendor/autoload.php';
+
+$response = Unirest\Request::get("https://montanaflynn-dictionary.p.mashape.com/define?word=".$_GET["word"],
+  array(
+    "X-Mashape-Key" => "ZA8k3CJvxdmshT0XPS3S6WV6vnfwp1hj5F9jsnNujBw5cKjh2Y",
+    "Accept" => "application/json"
+  )
+);
+echo "<ul class=\"nav nav-pills\">";
+foreach($response->body->definitions as $definition)
+{
+ echo "<li role=\"presentation\"><a href=\"#\">".$definition->text."</a></li>";
+}
+ echo "</ul>";
+?>
+ </div>
+</div>
 </body> 
 </html>
