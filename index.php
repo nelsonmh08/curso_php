@@ -1,20 +1,6 @@
 <?php
 require  __DIR__.'/vendor/autoload.php';
-	echo"CONEXION A LA BASE DE DATOS DEMO";
-	$URL="sql5.freemysqlhosting.net";
-	$database="sql585296";
-	$usuario="sql585296";
-	$password="yX9!zJ5%";
-	$port=3306;
-	$conexion=mysqli_connect($URL,$usuario,$password,$database,$port);
-	if(!$conexion) { die ("FINALIZO LA CONEXION");
-}
-echo "CONEXION EXITOSA";
-$query= "select * from demo";
-$result= mysqli_query($conexion,$query);
-while ($row=mysqli_fetch_assoc($result)){
-	echo $row['id']. " ".$row['nombre']." ".$row['descripcion'];
-}
+
 $response = Unirest\Request::get("https://montanaflynn-dictionary.p.mashape.com/define?word=work",
   array(
     "X-Mashape-Key" => "ZA8k3CJvxdmshT0XPS3S6WV6vnfwp1hj5F9jsnNujBw5cKjh2Y",
@@ -26,7 +12,15 @@ echo  $response->raw_body;
 <html>
 <form>
   <head>
-    <title>LABORATORIO 4</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
     </head>
 <body>
 <form name="input" action="index.php" method="POST">
